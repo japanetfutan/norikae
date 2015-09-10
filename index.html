@@ -44,8 +44,8 @@ function saveOptions() {
 $().ready(function(){
 	var start = decodeURI(getQuerystring('start'));
 	var end = decodeURI(getQuerystring('end'));
-	start = start.replace('"','');
-	end = end.replace('"','');
+	start = start.replace(/"/g,'');
+	end = end.replace(/"/g,'');
 
 	alert('start : '+start);
 	alert('end : '+end);
