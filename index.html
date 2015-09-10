@@ -14,11 +14,12 @@
 <form>
 <h2>設定</h2>
 
-<p>乗車駅：<input type="text" id="start" class="small" placeholder="sample" style="width: 550px"></p>
-<p>降車駅：<input type="text" id="end" class="small" placeholder="sample" style="width: 550px"></p>
+<p>乗車駅：<input type="text" id="start" class="small" placeholder="日本橋（東京）" style="width: 550px"></p>
+<p>降車駅：<input type="text" id="end" class="small" placeholder="日本橋（大阪）" style="width: 550px"></p>
+ * ジョルダン乗換案内で認識できる駅名であること．
 
-<p><input type="submit" id="b-save" value="save"></input></p>
-<p><input type="submit" id="b-cancel" value="cancel"></input></p>
+<p><input type="submit" id="b-save" value="Save"></input></p>
+<p><input type="submit" id="b-cancel" value="Cancel"></input></p>
 </form>
 <script>
 function saveOptions() {
@@ -52,9 +53,11 @@ $().ready(function(){
 	});
 
 	$("#b-save").click(function() {
-		//console.log("Save");
+		
+		console.log(encodeURIComponent(JSON.stringify(saveOptions())));
+
 		var location_uri = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
-		document.location = location_uri;
+		//document.location = location_uri;
 	});
 });
 </script>
