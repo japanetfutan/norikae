@@ -19,7 +19,7 @@
 <p> * ジョルダン乗換案内で認識できる駅名であること．</p>
 
 <p><input type="submit" id="b-save" value="Save"></input></p>
-<p><input type="submit" id="b-cancel" value="Cancel"></input></p>
+<p><input type="button" id="b-cancel" value="Cancel"></input></p>
 </form>
 <script>
 
@@ -44,9 +44,11 @@ $().ready(function(){
 	var query = window.location.search;
 	query = query.substr(1);
 	if(!query){
+		alert('1 : '+query);
 		$('#start').val('');
 		$('#end').val('');
 	}else{
+		alert('2 : '+query);
 		$('#start').val(getQuerystring('start'));
 		$('#end').val(getQuerystring('end'));
 
@@ -54,9 +56,7 @@ $().ready(function(){
 
 	$("#b-cancel").click(function(){
 		//console.log("Canceling");
-
-		//document.location = "pebblejs://close";
-		window.location = 'pebblejs://close';
+		document.location = "pebblejs://close";
 	});
 
 	$("#b-save").click(function() {
