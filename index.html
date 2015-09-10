@@ -41,17 +41,21 @@ function saveOptions() {
 }
 
 $().ready(function(){
-	var query = window.location.search;
-	query = query.substr(1);
-	if(!query){
-		alert('1 : '+query);
+	var start = getQuerystring('start');
+	var end = getQuerystring('end');
+
+	alert('start : '+start);
+	alert('end : '+end);
+
+	if(!start){
 		$('#start').val('');
+	}else{
+		$('#start').val(start);
+	}
+	if(!end){
 		$('#end').val('');
 	}else{
-		alert('2 : '+query);
-		$('#start').val(getQuerystring('start'));
-		$('#end').val(getQuerystring('end'));
-
+		$('#end').val(end);
 	}
 
 	$("#b-cancel").click(function(){
