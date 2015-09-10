@@ -42,8 +42,8 @@ function saveOptions() {
 }
 
 $().ready(function(){
-	var start = getQuerystring('start');
-	var end = getQuerystring('end');
+	var start = decodeURI(getQuerystring('start'));
+	var end = decodeURI(getQuerystring('end'));
 
 	alert('start : '+start);
 	alert('end : '+end);
