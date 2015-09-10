@@ -16,14 +16,27 @@
 
 <p>乗車駅：<input type="text" id="start" class="small" placeholder="日本橋（東京）" style="width: 550px"></p>
 <p>降車駅：<input type="text" id="end" class="small" placeholder="日本橋（大阪）" style="width: 550px"></p>
- * ジョルダン乗換案内で認識できる駅名であること．
+<p> * ジョルダン乗換案内で認識できる駅名であること．</p>
 
 <p><input type="submit" id="b-save" value="Save"></input></p>
 <p><input type="submit" id="b-cancel" value="Cancel"></input></p>
 </form>
 <script>
+
+function getQuerystring(key, default_){
+	if (default_==null) default_="";
+  key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
+  var qs = regex.exec(window.location.href);
+  if(qs == null){
+		return default_;
+	}else{
+		return qs[1];
+	}
+}
+
 function saveOptions() {
-	var sendValue = ['start':$('#start').val(), 'end':$('#end').val()];
+	var sendValue = {'start':$('#start').val(), 'end':$('#end').val()};
 	return sendValue;
 }
 
@@ -34,26 +47,20 @@ $().ready(function(){
 		$('#start').val('');
 		$('#end').val('');
 	}else{
-		$('#start').val(query);
-		$('#end').val(query);
+		$('#start').val(getQuerystring('start'));
+		$('#end').val(getQuerystring('end'));
 
 	}
-	//var w = $(window).width()-50;
-	//$('img').width(w);
-
-	// $('#h').click(function(){
-	// 	$('#t').toggle("fast");
-	// 	$('#h').toggleClass("ui-icon-carat-r");
-	// 	$('#h').toggleClass("ui-icon-carat-d");
-	// });
 
 	$("#b-cancel").click(function(){
 		//console.log("Canceling");
-		document.location = "pebblejs://close";
+
+		//document.location = "pebblejs://close";
+		window.location = 'pebblejs://close';
 	});
 
 	$("#b-save").click(function() {
-		
+
 		console.log(encodeURIComponent(JSON.stringify(saveOptions())));
 
 		var location_uri = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
