@@ -22,7 +22,7 @@
 </form>
 <script>
 function saveOptions() {
-	var sendValue = [$('#start').val(), $('#end').val()];
+	var sendValue = ['start':$('#start').val(), 'end':$('#end').val()];
 	return sendValue;
 }
 
@@ -35,7 +35,7 @@ $().ready(function(){
 	}else{
 		$('#start').val(query);
 		$('#end').val(query);
-		
+
 	}
 	//var w = $(window).width()-50;
 	//$('img').width(w);
