@@ -65,7 +65,7 @@ $().ready(function(){
 
 	$("#b-save").click(function() {
 
-		console.log(encodeURIComponent(JSON.stringify(saveOptions())));
+		alert(encodeURIComponent(JSON.stringify(saveOptions())));
 
 		var location_uri = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
 		//document.location = location_uri;
