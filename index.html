@@ -50,7 +50,7 @@ $().ready(function(){
 	//alert('start : '+start);
 	//alert('end : '+end);
 	alert(document.location.href);
-	var h = unescape(document.location.hash).substr(1);
+	var h = decodeURIComponent(document.location.hash).substr(1);
 	alert(h);
 
 
