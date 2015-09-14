@@ -24,17 +24,17 @@
 </form>
 <script>
 
-function getQuerystring(key, default_){
-	if (default_==null) default_="";
-  key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-  var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
-  var qs = regex.exec(window.location.href);
-  if(qs == null){
-		return default_;
-	}else{
-		return qs[1];
-	}
-}
+// function getQuerystring(key, default_){
+// 	if (default_==null) default_="";
+//   key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+//   var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
+//   var qs = regex.exec(window.location.href);
+//   if(qs == null){
+// 		return default_;
+// 	}else{
+// 		return qs[1];
+// 	}
+// }
 
 function saveOptions() {
 	var sendValue = {'start':$('#start').val(), 'end':$('#end').val()};
@@ -49,9 +49,9 @@ $().ready(function(){
 
 	//alert('start : '+start);
 	//alert('end : '+end);
-	alert(document.location.href);
+	//alert(document.location.href);
 	var h = decodeURIComponent(document.location.hash).substr(1);
-	alert(h);
+	//alert(h);
 	h=JSON.parse(h);
 
 	if(!h.start){
