@@ -42,14 +42,17 @@ function saveOptions() {
 }
 
 $().ready(function(){
-	var start = decodeURI(getQuerystring('start'));
-	var end = decodeURI(getQuerystring('end'));
-	start = start.replace(/"/g,'');
-	end = end.replace(/"/g,'');
+	// var start = decodeURI(getQuerystring('start'));
+	// var end = decodeURI(getQuerystring('end'));
+	// start = start.replace(/"/g,'');
+	// end = end.replace(/"/g,'');
 
 	//alert('start : '+start);
 	//alert('end : '+end);
 	alert(document.location.href);
+	var h = decodeURI(document.location.hash).substr(1);
+	alert(h);
+
 
 	if(!start){
 		$('#start').val('');
