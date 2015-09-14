@@ -52,7 +52,7 @@ $().ready(function(){
 	alert(document.location.href);
 	var h = decodeURIComponent(document.location.hash).substr(1);
 	alert(h);
-
+	h=JSON.parse(h);
 
 	if(!h.start){
 		$('#start').val('');
