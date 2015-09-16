@@ -16,7 +16,9 @@
 
 <p>乗車駅：<input type="text" id="start" class="small" placeholder="日本橋（東京）" style="width: 550px"></p>
 <p>降車駅：<input type="text" id="end" class="small" placeholder="日本橋（大阪）" style="width: 550px"></p>
+<p>経由駅：<input type="text" id="via" class="small" placeholder="東京ディズニーランド" style="width: 550px"></p>
 <p> * ジョルダン乗換案内で認識できる駅名であること．</p>
+<p> * 経由駅は試験的に導入しており，駅名候補が複数出るような駅だと上手く機能しません．</p>
 
 <!-- <p><input type="submit" id="b-save" value="Save"></input></p> -->
 <p><input type="button" id="b-save" value="Save"></input></p>
@@ -37,7 +39,7 @@
 // }
 
 function saveOptions() {
-	var sendValue = {'start':$('#start').val(), 'end':$('#end').val()};
+	var sendValue = {'start':$('#start').val(), 'end':$('#end').val(), `via`:$('#via').val()};
 	return sendValue;
 }
 
@@ -51,7 +53,7 @@ $().ready(function(){
 	//alert('end : '+end);
 	//alert(document.location.href);
 	var h = decodeURIComponent(document.location.hash).substr(1);
-	//alert(h);
+	alert(h);
 	h=JSON.parse(h);
 
 	if(!h.start){
@@ -63,6 +65,11 @@ $().ready(function(){
 		$('#end').val('');
 	}else{
 		$('#end').val(h.end);
+	}
+	if(!h.via){
+		$('#via').val('');
+	}else{
+		$('#via').val(h.via);
 	}
 
 	$("#b-cancel").click(function(){
