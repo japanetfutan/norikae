@@ -16,9 +16,11 @@
 
 <p>乗車駅：<input type="text" id="start" class="small" placeholder="日本橋（東京）" style="width: 550px"></p>
 <p>降車駅：<input type="text" id="end" class="small" placeholder="日本橋（大阪）" style="width: 550px"></p>
+<p><input type="button" id="change" value="駅名入替↕"></p>
 <p>経由駅：<input type="text" id="via" class="small" placeholder="東京ディズニーランド" style="width: 550px"></p>
 <p> * <a href="http://www.jorudan.co.jp/norikae/">ジョルダン乗換案内</a>で認識できる駅名であること．</p>
 <p> * 経由駅は試験的に導入しており，駅名候補が複数出るようなケースだと上手く機能しない場合があるかもしれません．</p>
+<p>test <a href="safari://www.jorudan.co.jp/norikae/">ジョルダン乗換案内</a> </p>
 
 <!-- <p><input type="submit" id="b-save" value="Save"></input></p> -->
 <p><input type="button" id="b-save" value="Save"></input></p>
@@ -64,6 +66,13 @@ $().ready(function(){
 	}else{
 		$('#via').val(h.via);
 	}
+
+	$('#change').click(function(){
+		var st = $('#start').value;
+		var en = $('#end').value;
+		$('#start').val(en);
+		$('#end').val(st);
+	});
 
 	$("#b-cancel").click(function(){
 		//console.log("Canceling");
