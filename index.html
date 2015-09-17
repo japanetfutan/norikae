@@ -20,24 +20,13 @@
 <p>経由駅：<input type="text" id="via" class="small" placeholder="東京ディズニーランド" style="width: 550px"></p>
 <p> * <a href="http://www.jorudan.co.jp/norikae/">ジョルダン乗換案内</a>で認識できる駅名であること．</p>
 <p> * 経由駅は試験的に導入しており，駅名候補が複数出るようなケースだと上手く機能しない場合があるかもしれません．</p>
-<!-- <p>test <a href="safari://www.jorudan.co.jp/norikae/">ジョルダン乗換案内</a> </p> -->
+<!-- <p><label><input type="checkbox" id="chk_accel" name="chk_accel" value="加速度更新する">加速度更新する</label></p>
+<p> * 加速度更新するにチェックを入れると腕を振る事で時刻データを更新（最新に）します．</p> -->
 
 <p><input type="button" id="b-save" value="Save"></input></p>
 <p><input type="button" id="b-cancel" value="Cancel"></input></p>
 </form>
 <script>
-
-// function getQuerystring(key, default_){
-// 	if (default_==null) default_="";
-//   key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-//   var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
-//   var qs = regex.exec(window.location.href);
-//   if(qs == null){
-// 		return default_;
-// 	}else{
-// 		return qs[1];
-// 	}
-// }
 
 function saveOptions() {
 	var sendValue = {'start':$('#start').val(), 'end':$('#end').val(), 'via':$('#via').val()};
